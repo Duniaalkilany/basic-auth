@@ -10,14 +10,14 @@ describe('Basic Auth', () =>{
     it('sign up and create a new user correctly', async () => {
 
         
-      const response = await request.post('/signup').send({ username: 'test5', password: 'test5' });
+      const response = await request.post('/signup').send({ username: 'test6', password: 'test6' });
       expect(response.status).toEqual(201);
    
-      expect(response.body.username).toEqual('test5')
+      expect(response.body.username).toEqual('test6')
     });
     it('POST signin', async () => {
         
-        let response = await request.post('/signin').auth('test5', 'test5');;
+        let response = await request.post('/signin').auth('test6', 'test6');;
         expect(response.status).toEqual(200);
         expect(response.body.username).toEqual('test5');
     });
@@ -25,7 +25,7 @@ describe('Basic Auth', () =>{
 
     describe('test middleware', () => {
         it('Does the middleware function (send it a basic header)', async () => {
-            let test= base64.encode('test4:test5');
+            let test= base64.encode('test6:test6');
             let response = await request.post('/signin').set(`Authorization`, `Basic ${test}`);
             expect(response.status).toEqual(200);
             expect(response.body).toBeTruthy();
@@ -38,15 +38,15 @@ describe('Basic Auth', () =>{
 
     it('should throw 403 on POST to /signin with bad info (uncorrect data)', async () => {
   
-    const response = await request.post('/signin').auth('test5', 'false');;
+    const response = await request.post('/signin').auth('test6', 'false');;
     expect(response.status).toBe(403);
     expect(response.body.username).toBe(undefined);
   });
 
   it('should throw 403 on POST to /signup with repeated info (sign up with  existing user name)', async () => {
     const test = {
-        username: 'test5',
-        password: 'test5',
+        username: 'test6',
+        password: 'test6',
       };
     const response = await request.post('/signup').send(test);
     expect(response.status).toBe(403);
