@@ -14,7 +14,7 @@ https://dunia-basic-auth.herokuapp.com/
 https://github.com/Duniaalkilany/basic-auth/actions
 
 * ### pull request :
-https://github.com/Duniaalkilany/api-server/pull/1
+https://github.com/Duniaalkilany/basic-auth/pull/1
 
 
 
